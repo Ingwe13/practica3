@@ -6,6 +6,8 @@ package practicatema3;
 
 import java.io.IOException;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -476,6 +478,22 @@ public class practica2 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Prueba otra vez \n" + e.getMessage());
             System.exit(0);
         }
+        jToggleButton1.setEnabled(true);
+        jToggleButton2.setEnabled(true);
+        jToggleButton3.setEnabled(true);
+        jToggleButton4.setEnabled(true);
+        jToggleButton5.setEnabled(true);
+        jToggleButton6.setEnabled(true);
+        jToggleButton7.setEnabled(true);
+        jToggleButton8.setEnabled(true);
+        jToggleButton9.setEnabled(true);
+        jToggleButton10.setEnabled(true);
+        jToggleButton11.setEnabled(true);
+        jToggleButton12.setEnabled(true);
+        jToggleButton13.setEnabled(true);
+        jToggleButton14.setEnabled(true);
+        jToggleButton15.setEnabled(true);
+        jToggleButton16.setEnabled(true);
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -491,15 +509,36 @@ public class practica2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton9ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       
-        //si aciertas se debe de quedar seleccionados para no confundir
-        //una vez acertado se reinicia 
-     jLabelAciertos(String.indexOf());
-     
-        
-        
-        
-        
+        try {
+            //si aciertas se debe de quedar seleccionados para no confundir
+            //una vez acertado se reinicia 
+
+
+            jToggleButton1.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
+            jToggleButton2.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
+            jToggleButton3.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
+            jToggleButton4.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
+            jToggleButton5.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
+            jToggleButton6.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
+            jToggleButton7.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
+            jToggleButton8.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
+            jToggleButton9.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
+            jToggleButton10.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
+            jToggleButton11.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
+            jToggleButton12.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
+            jToggleButton13.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
+            jToggleButton14.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
+            jToggleButton15.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
+            jToggleButton16.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
+        } catch (IOException ex) {
+            Logger.getLogger(practica2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+
+
+
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
