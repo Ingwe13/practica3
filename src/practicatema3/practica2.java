@@ -514,6 +514,7 @@ public class practica2 extends javax.swing.JFrame {
             //una vez acertado se reinicia 
        
     
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
