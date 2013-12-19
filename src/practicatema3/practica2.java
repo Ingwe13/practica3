@@ -17,13 +17,17 @@ import javax.swing.JOptionPane;
  * @author usuario
  */
 public class practica2 extends javax.swing.JFrame {
+    //declaramos las variables que vayamos a usar durante todo el programa
+    
+    String secJ = "";
+    
+    String BotonesMostrados = "";
+    String secuenciaPulsada = "";
+    int ImagAcertar = 4;
 
-    /**
-     * Creates new form practica2
-     */
     public practica2() {
         initComponents();
-
+        //Esta funcion nos permite desactivar los botones para no poder usarlos
         jToggleButton1.setEnabled(false);
         jToggleButton2.setEnabled(false);
         jToggleButton3.setEnabled(false);
@@ -58,12 +62,13 @@ public class practica2 extends javax.swing.JFrame {
         jLabelImagen4 = new javax.swing.JLabel();
         jLabelImagen6 = new javax.swing.JLabel();
         jLabelImagen5 = new javax.swing.JLabel();
+        jLabelImagen7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jLabelAciertos = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jButtonEmpezar = new javax.swing.JButton();
+        jButtonRecordar = new javax.swing.JButton();
+        jButtonComprobar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jToggleButton5 = new javax.swing.JToggleButton();
@@ -102,24 +107,29 @@ public class practica2 extends javax.swing.JFrame {
         jLabelImagen5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Z.png"))); // NOI18N
         jLabelImagen5.setText("jLabel3");
 
+        jLabelImagen7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Z.png"))); // NOI18N
+        jLabelImagen7.setText("jLabel3");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(74, 74, 74)
+                .addContainerGap()
                 .addComponent(jLabelImagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addGap(27, 27, 27)
                 .addComponent(jLabelImagen2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
+                .addGap(48, 48, 48)
                 .addComponent(jLabelImagen3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(72, 72, 72)
                 .addComponent(jLabelImagen4, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(39, 39, 39)
                 .addComponent(jLabelImagen5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelImagen6, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(jLabelImagen7, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,34 +141,35 @@ public class practica2 extends javax.swing.JFrame {
                     .addComponent(jLabelImagen3)
                     .addComponent(jLabelImagen4)
                     .addComponent(jLabelImagen6)
-                    .addComponent(jLabelImagen5))
+                    .addComponent(jLabelImagen5)
+                    .addComponent(jLabelImagen7))
                 .addContainerGap())
         );
-
-        jButton1.setText("Empezar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("Recordar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setText("Comprobar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
 
         jLabelAciertos.setText("jLabel1");
 
         jLabel2.setText("Aciertos");
+
+        jButtonEmpezar.setText("Empezar");
+        jButtonEmpezar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEmpezarActionPerformed(evt);
+            }
+        });
+
+        jButtonRecordar.setText("Recordar");
+        jButtonRecordar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRecordarActionPerformed(evt);
+            }
+        });
+
+        jButtonComprobar.setText("Comprobar");
+        jButtonComprobar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonComprobarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -167,34 +178,32 @@ public class practica2 extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel2))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel2)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelAciertos, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap()
+                        .addComponent(jLabelAciertos, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButtonEmpezar))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButtonRecordar))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButtonComprobar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jButton1)
+                .addGap(24, 24, 24)
+                .addComponent(jButtonEmpezar)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonRecordar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonComprobar)
+                .addGap(8, 8, 8)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jLabelAciertos, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -337,14 +346,14 @@ public class practica2 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 194, Short.MAX_VALUE))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 118, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -361,15 +370,31 @@ public class practica2 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
-        String secuencia = "";
+    private void jToggleButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton11ActionPerformed
+
+    private void jToggleButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton9ActionPerformed
+
+    private void jButtonRecordarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRecordarActionPerformed
+        //nos generara un numero aleatorio
         Random generadorNum = new Random();
+        BotonesMostrados = "";
+        //nos indica cual es numero primero, hasta que numero maximo puede llegar y el incremento que tiene
         for (int i = 0; i < 16; i++) {
+            //Nos permite transformar el numero aleatorio en una letra
             char letra = (char) (generadorNum.nextInt(16) + 'A');;
-            secuencia += letra;
+            BotonesMostrados += letra;
         }
 
+        secuenciaPulsada = "";
+       
+    //Esta funcion nos permite activar los botones para poder usarlos
         jToggleButton1.setEnabled(true);
         jToggleButton2.setEnabled(true);
         jToggleButton3.setEnabled(true);
@@ -387,37 +412,67 @@ public class practica2 extends javax.swing.JFrame {
         jToggleButton15.setEnabled(true);
         jToggleButton16.setEnabled(true);
 
+        //nos permite mostrar una imagen determinada en vez de una letra determinada
         try {
-            jToggleButton1.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secuencia.charAt(0) + ".png"))));
-            jToggleButton2.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secuencia.charAt(1) + ".png"))));
-            jToggleButton3.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secuencia.charAt(2) + ".png"))));
-            jToggleButton4.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secuencia.charAt(3) + ".png"))));
-            jToggleButton5.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secuencia.charAt(4) + ".png"))));
-            jToggleButton6.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secuencia.charAt(5) + ".png"))));
-            jToggleButton7.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secuencia.charAt(6) + ".png"))));
-            jToggleButton8.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secuencia.charAt(7) + ".png"))));
-            jToggleButton9.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secuencia.charAt(8) + ".png"))));
-            jToggleButton10.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secuencia.charAt(9) + ".png"))));
-            jToggleButton11.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secuencia.charAt(10) + ".png"))));
-            jToggleButton12.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secuencia.charAt(11) + ".png"))));
-            jToggleButton13.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secuencia.charAt(12) + ".png"))));
-            jToggleButton14.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secuencia.charAt(13) + ".png"))));
-            jToggleButton15.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secuencia.charAt(14) + ".png"))));
-            jToggleButton16.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secuencia.charAt(15) + ".png"))));
+            jToggleButton1.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + BotonesMostrados.charAt(0) + ".png"))));
+            jToggleButton2.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + BotonesMostrados.charAt(1) + ".png"))));
+            jToggleButton3.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + BotonesMostrados.charAt(2) + ".png"))));
+            jToggleButton4.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + BotonesMostrados.charAt(3) + ".png"))));
+            jToggleButton5.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + BotonesMostrados.charAt(4) + ".png"))));
+            jToggleButton6.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + BotonesMostrados.charAt(5) + ".png"))));
+            jToggleButton7.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + BotonesMostrados.charAt(6) + ".png"))));
+            jToggleButton8.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + BotonesMostrados.charAt(7) + ".png"))));
+            jToggleButton9.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + BotonesMostrados.charAt(8) + ".png"))));
+            jToggleButton10.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + BotonesMostrados.charAt(9) + ".png"))));
+            jToggleButton11.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + BotonesMostrados.charAt(10) + ".png"))));
+            jToggleButton12.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + BotonesMostrados.charAt(11) + ".png"))));
+            jToggleButton13.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + BotonesMostrados.charAt(12) + ".png"))));
+            jToggleButton14.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + BotonesMostrados.charAt(13) + ".png"))));
+            jToggleButton15.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + BotonesMostrados.charAt(14) + ".png"))));
+            jToggleButton16.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + BotonesMostrados.charAt(15) + ".png"))));
+
+            jLabelImagen1.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
+            jLabelImagen2.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
+            jLabelImagen3.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
+            jLabelImagen4.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
+            jLabelImagen5.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
+            jLabelImagen6.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
+            jLabelImagen7.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Vuelve intentarlo\n" + e.getMessage());
+            JOptionPane.showMessageDialog(this, "Se ha producido un error inesperado\n" + e.getMessage());
             System.exit(0);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+        /*
+         * Añadir los cambios necesarios en la generación de las combinaciones de letras para asegurar que no se produce
+         * ninguna repetición de letras, tanto para la combinación de los 16 botones como de las imágenes que se deben 
+         * adivinar.
+         * Documentar el código fuente.
+         * Añadir las mejoras que se deseen destacándolas en los comentarios.
+         * SI UNA LETRA ES IGUAL A LA ANTERIOR QUE SE LE SUME UNO O QUE SE HAGA OTRO NUMERO ALEATORIO DIFERENTE AL EXISTENTE
+         
+         */
+           // if ( jToggleButton1.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + BotonesMostrados.charAt(0) + ".png"))))!= jToggleButton2.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + BotonesMostrados.charAt(1) + ".png"))))) {
+                
+                      
+            //}
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String secJ = "";
+         
+       
+
+
+
+    }//GEN-LAST:event_jButtonRecordarActionPerformed
+
+    private void jButtonEmpezarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmpezarActionPerformed
+
         Random generadorNum = new Random();
-        for (int i = 0; i < 4; i++) {
+        secJ = "";
+        //nos indica cual es numero primero, desde que numero deberemos incrementarlo y el incremento que tiene
+        for (int i = 0; i < ImagAcertar; i++) {
             char letra = (char) (generadorNum.nextInt(16) + 'A');
             secJ += letra;
         }
-
+         //Esta funcion nos permite desactivar los botones para no poder usarlos
         jToggleButton1.setEnabled(false);
         jToggleButton2.setEnabled(false);
         jToggleButton3.setEnabled(false);
@@ -435,6 +490,7 @@ public class practica2 extends javax.swing.JFrame {
         jToggleButton15.setEnabled(false);
         jToggleButton16.setEnabled(false);
 
+        //Esta funcion nos permite desactivar los botones para no poder usarlos
         jToggleButton1.setSelected(false);
         jToggleButton2.setSelected(false);
         jToggleButton3.setSelected(false);
@@ -453,10 +509,20 @@ public class practica2 extends javax.swing.JFrame {
         jToggleButton16.setSelected(false);
 
         try {
-            jLabelImagen1.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secJ.charAt(0) + ".png"))));
-            jLabelImagen2.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secJ.charAt(1) + ".png"))));
-            jLabelImagen3.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secJ.charAt(2) + ".png"))));
-            jLabelImagen4.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secJ.charAt(3) + ".png"))));
+            switch (ImagAcertar) {
+                case 7:
+                    jLabelImagen7.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secJ.charAt(6) + ".png"))));
+                case 6:
+                    jLabelImagen6.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secJ.charAt(5) + ".png"))));
+                case 5:
+                    jLabelImagen5.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secJ.charAt(4) + ".png"))));
+                case 4:
+                    jLabelImagen1.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secJ.charAt(0) + ".png"))));
+                    jLabelImagen2.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secJ.charAt(1) + ".png"))));
+                    jLabelImagen3.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secJ.charAt(2) + ".png"))));
+                    jLabelImagen4.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/" + secJ.charAt(3) + ".png"))));
+                    break;
+            }
 
             jToggleButton1.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
             jToggleButton2.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
@@ -475,47 +541,122 @@ public class practica2 extends javax.swing.JFrame {
             jToggleButton15.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
             jToggleButton16.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/imagenes/Z.png"))));
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Prueba otra vez \n" + e.getMessage());
+            JOptionPane.showMessageDialog(this, "Se ha producido un error inesperado\n" + e.getMessage());
             System.exit(0);
         }
-        jToggleButton1.setEnabled(true);
-        jToggleButton2.setEnabled(true);
-        jToggleButton3.setEnabled(true);
-        jToggleButton4.setEnabled(true);
-        jToggleButton5.setEnabled(true);
-        jToggleButton6.setEnabled(true);
-        jToggleButton7.setEnabled(true);
-        jToggleButton8.setEnabled(true);
-        jToggleButton9.setEnabled(true);
-        jToggleButton10.setEnabled(true);
-        jToggleButton11.setEnabled(true);
-        jToggleButton12.setEnabled(true);
-        jToggleButton13.setEnabled(true);
-        jToggleButton14.setEnabled(true);
-        jToggleButton15.setEnabled(true);
-        jToggleButton16.setEnabled(true);
 
-    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    }//GEN-LAST:event_jButtonEmpezarActionPerformed
 
-    private void jToggleButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton11ActionPerformed
+    private void jButtonComprobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonComprobarActionPerformed
+        //declaramos desde que numero vamos a empezar a contar los aciertos
+        int contadorAciertos = 0;
 
-    private void jToggleButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton9ActionPerformed
+        if (jToggleButton1.isSelected() && secJ.indexOf(BotonesMostrados.charAt(0)) != -1) {
+            contadorAciertos++;
+        } else {
+            jToggleButton1.setEnabled(false);
+        }
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
-            //si aciertas se debe de quedar seleccionados para no confundir
-            //una vez acertado se reinicia 
-       
-    
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
+        if (jToggleButton2.isSelected() && secJ.indexOf(BotonesMostrados.charAt(1)) != -1) {
+            contadorAciertos++;
+        } else {
+            jToggleButton2.setEnabled(false);
+        }
+
+        if (jToggleButton3.isSelected() && secJ.indexOf(BotonesMostrados.charAt(2)) != -1) {
+            contadorAciertos++;
+        } else {
+            jToggleButton3.setEnabled(false);
+        }
+
+        if (jToggleButton4.isSelected() && secJ.indexOf(BotonesMostrados.charAt(3)) != -1) {
+            contadorAciertos++;
+        } else {
+            jToggleButton4.setEnabled(false);
+        }
+
+        if (jToggleButton5.isSelected() && secJ.indexOf(BotonesMostrados.charAt(4)) != -1) {
+            contadorAciertos++;
+        } else {
+            jToggleButton5.setEnabled(false);
+        }
+
+        if (jToggleButton6.isSelected() && secJ.indexOf(BotonesMostrados.charAt(5)) != -1) {
+            contadorAciertos++;
+        } else {
+            jToggleButton6.setEnabled(false);
+        }
+
+        if (jToggleButton7.isSelected() && secJ.indexOf(BotonesMostrados.charAt(6)) != -1) {
+            contadorAciertos++;
+        } else {
+            jToggleButton7.setEnabled(false);
+        }
+
+        if (jToggleButton8.isSelected() && secJ.indexOf(BotonesMostrados.charAt(7)) != -1) {
+            contadorAciertos++;
+        } else {
+            jToggleButton8.setEnabled(false);
+        }
+
+        if (jToggleButton9.isSelected() && secJ.indexOf(BotonesMostrados.charAt(8)) != -1) {
+            contadorAciertos++;
+        } else {
+            jToggleButton9.setEnabled(false);
+        }
+
+        if (jToggleButton10.isSelected() && secJ.indexOf(BotonesMostrados.charAt(9)) != -1) {
+            contadorAciertos++;
+        } else {
+            jToggleButton10.setEnabled(false);
+        }
+
+        if (jToggleButton11.isSelected() && secJ.indexOf(BotonesMostrados.charAt(10)) != -1) {
+            contadorAciertos++;
+        } else {
+            jToggleButton11.setEnabled(false);
+        }
+
+        if (jToggleButton12.isSelected() && secJ.indexOf(BotonesMostrados.charAt(11)) != -1) {
+            contadorAciertos++;
+        } else {
+            jToggleButton12.setEnabled(false);
+        }
+
+        if (jToggleButton13.isSelected() && secJ.indexOf(BotonesMostrados.charAt(12)) != -1) {
+            contadorAciertos++;
+        } else {
+            jToggleButton13.setEnabled(false);
+        }
+
+        if (jToggleButton14.isSelected() && secJ.indexOf(BotonesMostrados.charAt(13)) != -1) {
+            contadorAciertos++;
+        } else {
+            jToggleButton14.setEnabled(false);
+        }
+
+        if (jToggleButton15.isSelected() && secJ.indexOf(BotonesMostrados.charAt(14)) != -1) {
+            contadorAciertos++;
+        } else {
+            jToggleButton15.setEnabled(false);
+        }
+
+        if (jToggleButton16.isSelected() && secJ.indexOf(BotonesMostrados.charAt(15)) != -1) {
+            contadorAciertos++;
+        } else {
+            jToggleButton16.setEnabled(false);
+        }
+
+        jLabelAciertos.setText(String.valueOf(contadorAciertos));
+        /*nos permite contar los aciertos si ha seleccionado correctamente la imagen, hasta que numero de imagenes
+         *debemos intentar  acertar, y el incremento de puntos por acierto
+        */
+        if (contadorAciertos == ImagAcertar && ImagAcertar < 7) {
+            ImagAcertar++;
+        }
+
+    }//GEN-LAST:event_jButtonComprobarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -552,9 +693,9 @@ public class practica2 extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonComprobar;
+    private javax.swing.JButton jButtonEmpezar;
+    private javax.swing.JButton jButtonRecordar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelAciertos;
     private javax.swing.JLabel jLabelImagen1;
@@ -563,6 +704,7 @@ public class practica2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelImagen4;
     private javax.swing.JLabel jLabelImagen5;
     private javax.swing.JLabel jLabelImagen6;
+    private javax.swing.JLabel jLabelImagen7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
